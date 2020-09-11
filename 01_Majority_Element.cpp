@@ -61,3 +61,50 @@ int main()
 
 
 
+
+
+
+//Using map
+//Time O(n)
+//Space O(1)
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int findCandidate(int arr[], int n){
+
+
+    unordered_map<int, int> mp; 
+    
+    for(int i=0;i<n;i++){
+        mp[arr[i]]++;
+    }
+    int flag=0;
+    for(auto i:mp){
+        if(i.second>n/2){
+            flag=1;
+            return i.first;
+        }
+    }
+    if(flag==0)
+        return -1;
+
+
+}
+int main()
+{
+    int arr[] = {1, 2, 1, 3, 5, 1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    // Function calling
+    cout<<findCandidate(arr,n);
+
+    return 0;
+}
+
+
+
+
+
